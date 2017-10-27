@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>CrowdFundingSystem</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 맵핑 파일 -->
+  <context-param>
+    <param-name>fileName</param-name>
+    <param-value>cfs/util/actionMapping.properties</param-value>
+  </context-param>
+  
+  <!-- 클라이언트 인코딩 필터 -->
+  <filter>
+    <filter-name>RequestEncodingFilter</filter-name>
+    <filter-class>cfs.filter.RequestEncodingFilter</filter-class>
+    
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+  <!-- 서버 인코딩 필터 -->
+  <filter>
+    <filter-name>ResponseEncodingFilter</filter-name>
+    <filter-class>cfs.filter.ResponseEncodingFilter</filter-class>
+    
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+  <!-- 요청 URL 처리 -->
+  <servlet>
+    <servlet-name>URIHandler</servlet-name>
+    <servlet-class>cfs.controller.URIHandler</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>URIHandler</servlet-name>
+    <url-pattern>/cfs</url-pattern>
+  </servlet-mapping>
+</web-app>
