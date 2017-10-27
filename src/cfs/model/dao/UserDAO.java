@@ -46,7 +46,6 @@ public interface UserDAO {
 	
 	/**
 	 * 하나의 회원 정보 검색
-	 * @param id 회원 아이디
 	 * @return UserDTO 회원 정보
 	 */
 	UserDTO selectOne(String id) throws SQLException;
