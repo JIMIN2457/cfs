@@ -45,4 +45,14 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
+	public String searchID(String email) throws SQLException{ //아이디 찾기
+		String result = dao.searchID(email);
+		return result;
+	}
+	
+	public String serarchPassWord(String id, String email) throws SQLException{ //비밀번호찾기
+		String result = dao.serarchPassWord(id, email);
+		return result;
+	}
+	
 }
