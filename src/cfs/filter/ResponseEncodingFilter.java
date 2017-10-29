@@ -10,7 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * 서버의 응답으로 보내는 값을 UTF-8로 인코딩
+ * 서버의 응답으로 보내는 값을 UTF-8로 인코딩 <br />
  * 담당 : 박지민
  */
 public class ResponseEncodingFilter implements Filter {
