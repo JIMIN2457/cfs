@@ -46,8 +46,17 @@ public interface UserDAO {
 	
 	/**
 	 * 하나의 회원 정보 검색
-	 * @param id 회원 아이디
 	 * @return UserDTO 회원 정보
 	 */
 	UserDTO selectOne(String id) throws SQLException;
+	
+	/**
+	 * 아이디 찾기
+	 */
+	String searchID(String email) throws SQLException;
+	
+	/**
+	 * 비밀번호 찾기
+	 */
+	String serarchPassWord(String id, String email) throws SQLException;
 }
