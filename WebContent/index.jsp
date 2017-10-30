@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!--
 	// 메인 페이지
@@ -120,16 +121,16 @@
 			z-index: -1;
 			
 			display: block;
-			background-image: url("images/slide1.jpg");
+			background-image: url("/images/slide1.jpg");
 			background-size : cover;
 			width: 100%;
 			height: 100%;
 			
-			-webkit-filter: blur(5px);
-			-moz-filter: blur(5px);
-			-o-filter: blur(5px);
-			-ms-filter: blur(5px);
-			filter: blur(5px);
+			-webkit-filter: blur(10px);
+			-moz-filter: blur(10px);
+			-o-filter: blur(10px);
+			-ms-filter: blur(10px);
+			filter: blur(10px);
 		}
 	
 		#actions{
@@ -156,6 +157,7 @@
 		}
 		
 		#menu{
+			z-index: 7278;
 			display: none;
 		}
 		
@@ -212,7 +214,7 @@
 		
 		.note{
 			position:fixed;
-			z-index:99;
+			z-index:7278;
 			color: #fff;
 			font-size: 14px;
 			left: 40px;
@@ -265,12 +267,13 @@
 		
 		#section2 div span{
 			width: 25%;
-			height: 100%;
-			margin: 0 4.16%;
+			height: 95%;
+			margin: 2.5% 4.16%;
 			float: left;
 			border-radius: 30px;
 			background-color: rgba(255, 255, 255, 0.7);
 			transition: 0.3s;
+			box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
 		}
 		
 		#section2 div span div p{
@@ -283,16 +286,19 @@
 			background-color: rgba(255, 255, 255, 0.3);
 			text-align: center;
 			color: black;
+			background:-webkit-linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.3));
+			background:linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.3));
 		}
 		
 		#section3 div span{
 			width: 25%;
-			height: 100%;
-			margin: 0 4.16%;
+			height: 95%;
+			margin: 2.5% 4.16%;
 			float: left;
 			border-radius: 30px;
 			background-color: rgba(255, 255, 255, 0.7);
 			transition: 0.3s;
+			box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
 		}
 		
 		#section3 div span div p{
@@ -309,12 +315,13 @@
 		
 		#section4 div span{
 			width: 25%;
-			height: 100%;
-			margin: 0 4.16%;
+			height: 95%;
+			margin: 2.5% 4.16%;
 			float: left;
 			border-radius: 30px;
 			background-color: rgba(0, 0, 0, 0.5);
 			transition: 0.3s;
+			box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
 		}
 		
 		#section4 div span div p{
@@ -323,25 +330,71 @@
 		}
 		
 		#section5{
-			height: 100%;
-			background-color: rgba(255, 255, 255, 0.3);
 			text-align: center;
 			color: black;
+			background:-webkit-linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.3));
+			background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.3));
 		}
 		
 		#section5 div span{
 			width: 25%;
-			height: 100%;
-			margin: 0 4.16%;
+			height: 95%;
+			margin: 2.5% 4.16%;
 			float: left;
 			border-radius: 30px;
 			background-color: rgba(255, 255, 255, 0.7);
 			transition: 0.3s;
+			box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
 		}
 		
 		#section5 div span div p{
 			padding: 3px 50px;
 			font-size: 20px;
+		}
+		
+		.modal{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 2457;
+			background:-webkit-linear-gradient(rgba(33, 179, 169, 0.9), rgba(255, 255, 255, 0.5));
+			background:linear-gradient(rgba(33, 179, 169, 0.9), rgba(255, 255, 255, 0.1));
+			float: left;
+			display: block;
+			top: -100%;
+		}
+		
+		.pop > div:nth-child(1){
+			width: 25%;
+			height: 62%;
+			top: 20%;
+			left: 10%;
+			float: left;
+			border-radius: 30px;
+			background-color: rgba(255, 255, 255, 0.9);
+			transition: 0.3s;
+			box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
+			z-index: 7278;
+			position: absolute;
+		}
+		
+		.pop > div:nth-child(2){
+			width: 50%;
+			height: 62%;
+			top: 20%;
+			left: 40%;
+			float: left;
+			border-radius: 30px;
+			background-color: rgba(255, 255, 255, 0.9);
+			transition: 0.3s;
+			box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.3);
+			z-index: 7278;
+			position: absolute;
+		}
+		
+		.modalClose{
+			cursor: pointer;
+			position: relative;
 		}
 	</style>
 
@@ -349,12 +402,56 @@
 
 <body>
 
+<div class="modal" id="joinModal">
+	
+	<div class="pop" id ="joinPop">
+		<div>
+		
+		</div>
+		
+		<div>
+		
+		</div>
+		
+		<!-- <div>
+			<div>
+				<h1>회원가입</h1>
+			</div>
+			
+			<div>
+				<input type="text" id="name" name="name" placeholder="이름을 입력해주세요." />
+			</div>
+			
+			<div>
+				<input type="text" id="id" name="id" placeholder="아이디를 입력해주세요." />
+			</div>
+			
+			<div>
+				<input type="email" id="email" name="email" placeholder="이메일을 입력해주세요." />
+			</div>
+			
+			<div>
+				<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." />
+			</div>
+			
+			<div>
+				<input type="password" id="password" name="password" placeholder="비밀번호를 한번 더 입력해주세요." />
+			</div>
+		</div> -->
+	</div>
+	
+	<div style="text-align: center; position: relative; top: 88%;">
+		<img class="modalClose" id="joinClose" style="position: absolute; left: 48%; z-index: 2" width="100" height="50" src="${path}/images/upIcon.png" alt="close" title="접어두기" />
+		<img class="modalClose" id="joinCloseUp" style="position: absolute; left: 48%; z-index: 1" width="100" height="50" src="${path}/images/upIcon.png" alt="close" title="접어두기" />
+	</div>
+</div>
+
 <ul id="menu">
 	<li data-menuanchor="Page1"><a href="#Page1" alt="page1" title="메인으로">메인으로</a></li>
 	<li data-menuanchor="Page2"><a href="#Page2" alt="page2" title="펀딩소개">펀딩소개</a></li>
 	<li data-menuanchor="Page3"><a href="#Page3" alt="page3" title="시작하기">시작하기</a></li>
 	<li data-menuanchor="Page4"><a href="#Page4" alt="page4" title="성공사례">성공사례</a></li>
-	<li data-menuanchor="page5"><a href="#page5" alt="page5" title="회사정보">회사정보</a></li>
+	<li data-menuanchor="page5"><a href="#page5" alt="page5" title="문의하기">문의하기</a></li>
 </ul>
 
 <div class="myInfo">
@@ -362,7 +459,7 @@
 	<img style="float: right" id="login" class="img-thumbnail" width="100" height="100" src="${path}/images/loginButton.png" title="로그인" />
 	
 	<span style="display: none">
-		<form action="login" method="post">
+		<form action="${path}/cfs?url=login" method="post">
 			<button style="border: none; border-radius: 3px" type="submit"> <img style="float: right" id="loginButton" class="img-thumbnail" width="100" height="100" src="${path}/images/loginButton.png" title="로그인" /> </button>
 		
 			<span>
@@ -377,7 +474,8 @@
 		</form>
 	</span>
 	
-	<img style="display: none" id="rightIcon" style="float: left;" width="50" height="100" src="${path}/images/rightIcon.png" title="접어두기" />
+	<img style="display: none; left: 3%; float: left; z-index: 2; position: absolute;" id="rightIcon" width="50" height="100" src="${path}/images/rightIcon.png" title="접어두기" />
+	<img style="display: none; left: 3%; float: left; z-index: 1; position: absolute;" id="moveRightIcon" width="50" height="100" src="${path}/images/rightIcon.png" title="접어두기" />
 </div>
 
 <div id="myContainer">
@@ -386,9 +484,9 @@
 	</div>
 	
 	<div class="section" id="section2">
-		<div style="width: 80%; height: 600px; position: relative; left: 10%">
-			<div style="position: absolute; top: -120px; left: 33.33%;">
-				<h1 style="font-size: 48px; font-weight: bold;">크라우드 펀딩 소개하기</h1>
+		<div style="width: 80%; height: 60%; position: relative; left: 10%">
+			<div style="width: 100%; font-size: 48px; font-weight: bold;">
+				크라우드 펀딩 소개하기
 			</div>
 			
 			<span>
@@ -446,9 +544,9 @@
 	</div>
 	
 	<div class="section" id="section3">
-		<div style="width: 80%; height: 600px; position: relative; left: 10%">
-			<div style="position: absolute; top: -120px; left: 33.33%;">
-				<h1 style="font-size: 48px; font-weight: bold;">크라우드 펀딩 시작하기</h1>
+		<div style="width: 80%; height: 60%; position: relative; left: 10%">
+			<div style="width: 100%; font-size: 48px; font-weight: bold;">
+				크라우드 펀딩 시작하기
 			</div>
 		
 			<span>
@@ -522,9 +620,9 @@
 	</div> -->
 	
 	<div class="section" id="section4">
-		<div style="width: 80%; height: 600px; position: relative; left: 10%">
-			<div style="position: absolute; top: -120px; left: 33.33%;">
-				<h1 style="font-size: 48px; font-weight: bold;">크라우드 펀딩 성공사례</h1>
+		<div style="width: 80%; height: 60%; position: relative; left: 10%">
+			<div style="width: 100%; font-size: 48px; font-weight: bold;">
+				크라우드 펀딩 성공사례
 			</div>
 		
 			<span>
@@ -581,11 +679,11 @@
 	</div>
 	
 	<div class="section" id="section5">
-		<div style="width: 80%; height: 600px; position: relative; left: 10%">
-			<div style="position: absolute; top: -120px; left: 33.33%;">
-				<h1 style="font-size: 48px; font-weight: bold;">크라우드 펀딩 회사정보</h1>
+		<div style="width: 80%; height: 60%; position: relative; left: 10%">
+			<div style="width: 100%; font-size: 48px; font-weight: bold;">
+				크라우드 펀딩 문의하기
 			</div>
-		
+			
 			<span>
 				<div>
 					<img style="width: 50%; margin: 20px 0" src="${path}/images/funding1.png" alt="funding1" title="프로젝트 올리기" />
@@ -644,13 +742,38 @@
 <div class="note">
 	<img style="float: left;" id="helper" class="img-thumbnail img-responsive" width="100" height="100" src="${path}/images/helper.jpg" alt="helperOff" title="빵빵덕" />
 	
-	<span>
-		<span>안녕하십니까?</span> <br />
-		<span>저는 당신을 도와줄 &lt빵빵덕> 입니다!</span> <br />
-		<span>문제가 발생한다면 해결할 수 있게 도와드리겠습니다!</span>
-	</span>
+	<c:choose>
+		<c:when test="${yes != null}">
+			<span>
+				<span></span> <br />
+				<span style="color: green;">${yes}</span> <br />
+				<span></span>
+			</span>
+			
+			<c:remove var="yes"/>
+		</c:when>
+		
+		<c:when test="${no != null}">
+			<span>
+				<span>문제가 발생하셨군요!</span> <br />
+				<span style="color: red;">${no}</span> <br />
+				<span>또다른 문제가 발생한다면 해결할 수 있게 도와드리겠습니다!</span>
+			</span>
+			
+			<c:remove var="no"/>
+		</c:when>
+		
+		<c:otherwise>
+			<span>
+				<span>안녕하십니까?</span> <br />
+				<span>저는 당신을 도와줄 &lt빵빵덕> 입니다!</span> <br />
+				<span>문제가 발생한다면 해결할 수 있게 도와드리겠습니다!</span>
+			</span>
+		</c:otherwise>
+	</c:choose>
 	
-	<img id="leftIcon" style="float: right; display: none;" width="50" height="100" src="${path}/images/leftIcon.png" alt="helperClose" title="접어두기" />
+	<img style="display: none; float: right; right: 3%; z-index: 2; position: absolute;" id="leftIcon" width="50" height="100" src="${path}/images/leftIcon.png" alt="helperClose" title="접어두기" />
+	<img style="display: none; float: right; right: 3%; z-index: 1; position: absolute;" id="moveLeftIcon" width="50" height="100" src="${path}/images/leftIcon.png" alt="helperClose" title="접어두기" />
 </div>
 
 </body>
@@ -686,11 +809,11 @@
 		var alt = $(this).children("div").children("img").attr("alt");
 		
 		if(alt == "funding1"){
-			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; bottom: 30px'> <p> <b>클릭시 프로젝트 생성하기</b> </p> </div>");
+			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; top: 100%;'> <p> <b>클릭시 프로젝트 생성하기</b> </p> </div>");
 		}else if(alt == "funding2"){
-			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; bottom: 30px'> <p> <b>클릭시 진행중인 프로젝트 보기</b> </p> </div>");
+			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; top: 100%;'> <p> <b>클릭시 진행중인 프로젝트 보기</b> </p> </div>");
 		}else if(alt == "funding3"){
-			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; bottom: 30px'> <p> <b>클릭시 마감된 프로젝트 보기</b> </p> </div>");
+			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; top: 100%;'> <p> <b>클릭시 마감된 프로젝트 보기</b> </p> </div>");
 		}
 	}, function(){
 		$(this).css({
@@ -726,13 +849,13 @@
 		
 		if(alt == "funding1"){
 			$(this).css({"background-color" : "rgba(204, 209, 255, 0.9)"});
-			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; bottom: 30px'> <p> <b>클릭시 창작자 성공사례 보기</b> </p> </div>");
+			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; top: 100%;'> <p> <b>클릭시 창작자 성공사례 보기</b> </p> </div>");
 		}else if(alt == "funding2"){
 			$(this).css({"background-color" : "rgba(184, 243, 184, 0.9)"});
-			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; bottom: 30px'> <p> <b>클릭시 브랜드 성공사례 보기</b> </p> </div>");
+			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; top: 100%;'> <p> <b>클릭시 브랜드 성공사례 보기</b> </p> </div>");
 		}else if(alt == "funding3"){
 			$(this).css({"background-color" : "rgba(255, 169, 176, 0.9)"});
-			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; bottom: 30px'> <p> <b>클릭시 캠페인 성공사례 보기</b> </p> </div>");
+			$(this).append("<div class='moveHelp' style='width: 25%; position: absolute; top: 100%;'> <p> <b>클릭시 캠페인 성공사례 보기</b> </p> </div>");
 		}
 	}, function(){
 		$(this).css({

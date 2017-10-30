@@ -35,13 +35,13 @@
   
   <!-- 요청 URL 처리 -->
   <servlet>
-    <servlet-name>URIHandler</servlet-name>
-    <servlet-class>cfs.controller.URIHandler</servlet-class>
+    <servlet-name>URLHandler</servlet-name>
+    <servlet-class>cfs.controller.URLHandler</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>URIHandler</servlet-name>
+    <servlet-name>URLHandler</servlet-name>
     <url-pattern>/cfs</url-pattern>
   </servlet-mapping>
 </web-app>
