@@ -121,7 +121,7 @@
 			z-index: -1;
 			
 			display: block;
-			background-image: url("/images/slide1.jpg");
+			background-image: url("${path}/images/slide1.jpg");
 			background-size : cover;
 			width: 100%;
 			height: 100%;
@@ -253,7 +253,7 @@
 			z-index: -1;
 			
 			display: block;
-			background-image: url("/images/fundingBackground.png");
+			background-image: url("${path}/images/fundingBackground.png");
 			background-size : cover;
 			width: 100%;
 			height: 100%;

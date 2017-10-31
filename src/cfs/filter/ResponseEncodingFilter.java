@@ -11,7 +11,8 @@ import javax.servlet.ServletResponse;
 
 /**
  * 서버의 응답으로 보내는 값을 UTF-8로 인코딩 <br />
- * 담당 : 박지민
+ * 담당 : 박지민 <br />
+ * 최근 수정 날짜 : 2017-10-30
  */
 public class ResponseEncodingFilter implements Filter {
 	String encoding;

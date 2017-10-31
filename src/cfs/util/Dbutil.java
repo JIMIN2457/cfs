@@ -11,8 +11,9 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
- * DBCP 기술 로드 연결 닫기
+ * DBCP 기술 로드 연결 닫기 - 유틸
  * 담당 : 박지민
+ * 최근 수정 날짜 : 2017-10-30
  */
 public class Dbutil {
 	static DataSource ds;

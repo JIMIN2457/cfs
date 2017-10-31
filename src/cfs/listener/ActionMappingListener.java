@@ -11,8 +11,9 @@ import javax.servlet.annotation.WebListener;
 import cfs.controller.Action;
 
 /**
- * 액션 맵핑 준비 <br />
+ * 요청한 경로에 따라 처리해 줄 액션을 미리 세팅 - 리스너
  * 담당 : 박지민
+ * 최근 수정 날짜 : 2017-10-30
  */
 @WebListener
 public class ActionMappingListener implements ServletContextListener {
@@ -61,6 +62,9 @@ public class ActionMappingListener implements ServletContextListener {
 				// 4. Map을 application 영역에 저장
 				e.getServletContext().setAttribute("map", map);
 			}
+			
+			// ContextPath 세팅
+			e.getServletContext().setAttribute("path", e.getServletContext().getContextPath());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
